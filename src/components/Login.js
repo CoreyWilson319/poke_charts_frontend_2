@@ -22,7 +22,7 @@ const Login = (props) => {
         e.preventDefault();
         const userData = { email, password };
 
-        axios.post(`${REACT_APP_SERVER_URL}api/users/login`, userData)
+        axios.post(`${REACT_APP_SERVER_URL}/auth/user/login`, userData)
         .then(response => {
             const { token } = response.data;
             // Save token to localStorage
@@ -38,6 +38,8 @@ const Login = (props) => {
             console.log(error);
         })
     }
+
+    console.log(REACT_APP_SERVER_URL)
 
     if (props.user) return <Redirect to='/profile' />
 
